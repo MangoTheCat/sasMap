@@ -8,7 +8,7 @@
 #' library(sasMap)
 #' sasDir <- system.file('examples/SAScode', package='sasMap')
 #' sasCode <- parseSASfolder(sasDir)
-#' write.csv(sasCode, 'sasCode HSBC.csv', row.names = FALSE)
+#' write.csv(sasCode, 'sasCode.csv', row.names = FALSE)
 #' }
 #' @export
 parseSASfolder <- function(sasDir, output="data.frame") {

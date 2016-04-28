@@ -22,7 +22,7 @@ Extract summary information of data steps and proc calls by parsing a SAS folder
 library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
 sasCode <- parseSASfolder(sasDir)
-write.csv(sasCode, 'sasCode HSBC.csv', row.names = FALSE)
+write.csv(sasCode, 'sasCode.csv', row.names = FALSE)
 }
 }
 \author{

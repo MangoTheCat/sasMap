@@ -21,6 +21,9 @@ library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
 sasCode <- parseSASfolder(sasDir)
 
+# write sas code stats to csv  
+write.csv(sasCode, 'sasCode.csv', row.names = FALSE)
+
 # Draw frequency of proc calls
 drawProcs(sasCode$Procs)
 
