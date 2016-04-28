@@ -1,0 +1,16 @@
+Package: sasMap
+Title: Function map for SAS
+Version: 0.0.0.9000
+Author: Richard Pugh, Jinjing Xie, Ava Yang
+Maintainer: Mango Business Solutions <support@mango-solutions.com>
+Description: Examine the structure of SAS scripts by visualizing macro
+    dependencies and listing data steps/ procs in analysis.
+Depends:
+    R (>= 3.2.2)
+Imports:
+    ggplot2,
+    network,	
+	networkD3
+License: GPL-2
+LazyData: true
+RoxygenNote: 5.0.1
