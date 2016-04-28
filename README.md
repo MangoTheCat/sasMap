@@ -3,7 +3,7 @@
 > Function map for SAS scripts.
 
 - Extract counts of procs and data steps
-- Draw a barplot of proc calls jio uio 
+- Draw a barplot of proc calls
 - Plot static and interactive network of script dependency
 
 
