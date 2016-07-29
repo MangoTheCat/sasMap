@@ -18,16 +18,20 @@ parseSASscript <- function(txt,
   trim <- function(x) gsub("^\\s+|", "", x)
   theCode <- casefold(trim(scan(txt, what = character(), sep="\n", quiet = TRUE)))
   theCode <- theCode [ theCode != "" ]
-  if (length(grep("^/\\*", theCode)) > 0) theCode <- theCode [ -grep("^/\\*", theCode) ]  # Remove comment lines styling as /**/
-  if (length(grep("^\\*", theCode)) > 0) theCode <- theCode [ -grep("^\\*", theCode) ] # Remove comment lines styling as *;
-  dataLines <- length(grep("^data ", theCode)) # TODO: Aby chances the lines starting with data are not data steps?
+  if (length(grep("^/\\*", theCode)) > 0) theCode <- theCode [ -grep("^/\\*", theCode) ]
+  # Remove comment lines styling as /**/
+  if (length(grep("^\\*", theCode)) > 0) theCode <- theCode [ -grep("^\\*", theCode) ]
+  # Remove comment lines styling as *;
+  dataLines <- length(grep("^data ", theCode))
+  # Is it possible tht the lines starting with data are not data steps?
   whichCall <- sapply(paste0("%", allFiles, "[;(]+"), function(txt, code) length(grep(txt, code)), code= theCode)
   callFuns <- if (sum(whichCall)) paste0(allFiles[whichCall > 0], collapse=",") else ""
   procLines <- grep("^proc", theCode)
 
   #allProcs <- c()
   procTab <- NULL
-  if (length(procLines)) { # there are procs!
+  if (length(procLines)) {
+    # If there are procs!
     procCode <- gsub(";", " ", substring(theCode [ procLines ], 6))
     procCode <- substring(procCode, 1, regexpr(" ", procCode)-1)
     #assign("allProcs", c(get("allProcs", pos = 1), procCode), pos = 1)
@@ -58,7 +62,9 @@ parseSASscript <- function(txt,
                       nLines = length(theCode),
                       Procs = procString,
                       DataSteps = dataLines,
-                      Calls = callFuns)
+                      Calls = callFuns,
+                      nMacros = length(grep("^\\%mend", theCode)))
+                      # Is it reliable to use "%mend" as a macro tag?
     res$`%include` <- includeString
   }
 

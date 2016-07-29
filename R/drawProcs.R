@@ -1,19 +1,17 @@
-#' Draw the frequency of proc calls
+#' List proc calls
 #'
-#' It creates a static barplot using ggplot2.
+#' This function reports counts of proc calls by group.
 #'
 #' @param procsCol Character or factor indicating the Procs from the descSASscript output
-#' @return \code{NULL}.
+#' @return \code{data.frame}.
 #' @author Mango Solutions
 #' @examples \dontrun{
 #' library(sasMap)
 #' sasDir <- system.file('examples/SAScode', package='sasMap')
-#' drawProcs(parseSASfolder(sasDir)$Procs)
+#' listProcs(parseSASfolder(sasDir)$Procs)
 #' }
-#' @import ggplot2
 #' @export
-
-drawProcs <- function(procsCol) {
+listProcs  <- function(procsCol) {
   if(missing(procsCol)) stop('Please pass the Procs column to this argument')
   if(!(is.factor(procsCol) | is.character(procsCol))) stop('Procs column is a character or factor vector')
 
@@ -32,9 +30,32 @@ drawProcs <- function(procsCol) {
   }))
   out <- aggregate(list(N = out$N), list(Proc = out$Proc), sum)
   out <- out [order(out$N, decreasing = TRUE), ]
-  out <- na.omit(out)
+  return(out)
 
-  g <- ggplot(out, aes(x=reorder(Proc, N), y=N)) +
+}
+
+
+#' Draw the frequency of proc calls
+#'
+#' Draw a barplot based on the frequency.
+#'
+#' @param procs data.frame output from the listProcs function, i.e. counts by procs.
+#' @return \code{NULL}.
+#' @author Mango Solutions
+#' @examples \dontrun{
+#' library(sasMap)
+#' sasDir <- system.file('examples/SAScode', package='sasMap')
+#' out <- listProcs(parseSASfolder(sasDir)$Procs)
+#' drawProcs(out)
+#' }
+#' @import ggplot2
+#' @export
+
+drawProcs <- function(procs) {
+
+  procs <- na.omit(procs)
+
+  g <- ggplot(procs, aes(x=reorder(Proc, N), y=N)) +
     geom_bar(stat='identity', fill="#F21E13") +
 	  coord_flip() +
 	  theme_minimal() +

@@ -4,22 +4,23 @@
 \alias{drawProcs}
 \title{Draw the frequency of proc calls}
 \usage{
-drawProcs(procsCol)
+drawProcs(procs)
 }
 \arguments{
-\item{procsCol}{Character or factor indicating the Procs from the descSASscript output}
+\item{procs}{data.frame output from the listProcs function, i.e. counts by procs.}
 }
 \value{
 \code{NULL}.
 }
 \description{
-It creates a static barplot using ggplot2.
+Draw a barplot based on the frequency.
 }
 \examples{
 \dontrun{
 library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
-drawProcs(parseSASfolder(sasDir)$Procs)
+out <- listProcs(parseSASfolder(sasDir)$Procs)
+drawProcs(out)
 }
 }
 \author{
