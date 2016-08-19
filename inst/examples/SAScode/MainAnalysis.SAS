@@ -2,7 +2,7 @@
 /* The code here may even not runnable under SAS */
 
 
-%init;
+%init;%init;
 
 data MyLib.iris;             
     set Sashelp.iris;        

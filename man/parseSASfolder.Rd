@@ -4,7 +4,7 @@
 \alias{parseSASfolder}
 \title{Extract summary information of data steps and proc calls by parsing a SAS folder.}
 \usage{
-parseSASfolder(sasDir, output = "data.frame")
+parseSASfolder(sasDir, sasPattern = "\\\\.[Ss][Aa][Ss]$")
 }
 \arguments{
 \item{sasDir}{Path to the folder that holds all SAS scripts}

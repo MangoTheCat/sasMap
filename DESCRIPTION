@@ -8,6 +8,8 @@ Description: Examine the structure of SAS scripts by visualizing macro
 Depends:
     R (>= 3.2.4)
 Imports:
+    readr,
+    stringi,
     ggplot2,
     network,
 	networkD3
