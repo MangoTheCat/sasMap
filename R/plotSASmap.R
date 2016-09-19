@@ -34,7 +34,7 @@ plotSASmap <- function(networkobj, displayisolates = FALSE, displaylabels = TRUE
         }
     }
 	plot(networkobj, displayisolates = displayisolates, displaylabels = displaylabels,
-			boxed.labels = TRUE, arrowhead.cex = arrowhead.cex, edge.lwd = edge.lwd,
+			boxed.labels = FALSE, arrowhead.cex = arrowhead.cex, edge.lwd = edge.lwd,
 			label.cex = label.cex, vertex.col = vertex.col, ...)
 	if (!missing(pdffile)) dev.off()
 }

@@ -4,10 +4,10 @@
 \alias{renderNetwork}
 \title{A Wrapper for the \code{\link{parseSASfolder}} and \code{\link{createNetwork}}.}
 \usage{
-renderNetwork(sasDir, sas.pattern = "\\\\.[Ss][Aa][Ss]$")
+renderNetwork(dirPath, sas.pattern = "\\\\.[Ss][Aa][Ss]$")
 }
 \arguments{
-\item{sasDir}{basedir to analysis}
+\item{dirPath}{basedir to analysis}
 
 \item{sas.pattern}{the extention file name pattern}
 }

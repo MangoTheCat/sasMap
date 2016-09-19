@@ -4,13 +4,13 @@
 \alias{listProcs}
 \title{List proc calls}
 \usage{
-listProcs(procsCol)
+listProcs(filepath)
 }
 \arguments{
-\item{procsCol}{Character or factor indicating the Procs from the descSASscript output}
+\item{filepath}{Path to single sas file or folder}
 }
 \value{
-\code{data.frame}.
+\code{data.frame}
 }
 \description{
 This function reports counts of proc calls by group.
@@ -19,7 +19,7 @@ This function reports counts of proc calls by group.
 \dontrun{
 library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
-listProcs(parseSASfolder(sasDir)$Procs)
+listProcs(sasDir)
 }
 }
 \author{

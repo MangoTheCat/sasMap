@@ -6,20 +6,12 @@
 \usage{
 parseSASscript(txt, funs = list(Script = getScript_name, nLines = countLine,
   Procs = countProc, Data_step = countData_step, Macro_call = extractMacro_call,
-  Macro_define = extractMacro_define), ...)
+  Macro_define = extractMacro_define), output = "list", ...)
 }
 \arguments{
 \item{txt}{Path to a SAS script}
-
-\item{allFiles}{Character vector indicating all sas scripts}
-
-\item{output}{Output should be data.frame or list? Default is data.frame.}
-
-\item{txt}{Path to a SAS script}
 }
 \value{
-\code{data.frame} or \code{character}.
-
 \code{list}.
 }
 \description{
@@ -33,8 +25,6 @@ parseSASscript(txt=file.path(sasDir, 'MainAnalysis.SAS'))
 }
 }
 \author{
-Mango Solutions
-
 Mango Solutions
 }
 

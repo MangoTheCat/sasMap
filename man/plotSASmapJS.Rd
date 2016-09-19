@@ -4,14 +4,10 @@
 \alias{plotSASmapJS}
 \title{Plot interactive network of SAS scripts}
 \usage{
-plotSASmapJS(funData, script = "Script", calls = "Calls")
+plotSASmapJS(funData)
 }
 \arguments{
-\item{funData}{Parsed SAS code in data.frame}
-
-\item{script}{Name of the script variable. Default is Script.}
-
-\item{calls}{Name of the calls variable. Default is Calls.}
+\item{funData}{Parsed SAS code from multiple scripts}
 }
 \value{
 \code{NULL}.
@@ -23,7 +19,7 @@ It creates basic force directed network graphics with depends on the networkD3 p
 \dontrun{
 library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
-sasCode <- parseSASfolder(sasDir)
+sasCode <- parseSASfolder(sasDir, output = "list")
 plotSASmapJS(funData=sasCode)
 }
 }

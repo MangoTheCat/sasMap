@@ -9,7 +9,8 @@
 #' parseSASscript(txt=file.path(sasDir, 'MainAnalysis.SAS'))
 #' }
 #' @importFrom readr read_file read_lines
-#' @importFrom stringi stri_trim stri_count
+#' @importFrom stringi stri_trim stri_count stri_extract_all stri_replace_all
+#' @importFrom magrittr "%>%"
 #' @export
 parseSASscript <- function(txt,
                            funs = list("Script" = getScript_name,
@@ -37,8 +38,8 @@ parseSASscript <- function(txt,
       nLines = stats$nLines,
       Procs = procString,
       Data_step = stats$Data_step,
-      Macro_call = length(stats$Macro_call),
-      Macro_define = length(stats$Macro_define)
+      Macro_call = paste(stats$Macro_call, sep = "", collapse = ", "), 
+      Macro_define = paste(stats$Macro_define, sep = "", collapse = ", ")
     )
   }
   return(stats)
@@ -79,10 +80,10 @@ countProc <- function(txt){
   
   # Extract proc lines
   idx <- NULL
-  idx <- grep("^proc", theCode)  
+  idx <- grep("^proc ", theCode)  
   
   proc <- strsplit(theCode[idx], " ")
-  proc <- unlist(lapply(proc, `[[`, 2))
+  proc <- unlist(lapply(proc, `[[`, 2)) # Could be that the second element is null or invalid!!! A bug was captured.
   
   return(proc)
 }
@@ -97,38 +98,32 @@ countData_step <- function(txt){
   length(idx) # gsub(pattern = "^data\\s+", replacement = "", theCode[idx])
 }
 
-extractMacro_call <- function(txt, dropArg = c("macro", "mend")){
+extractMacro_call <- function(txt, dropArg = NULL){
   theCode <- parseSAS(txt) 
   theCode <- unlist(strsplit(theCode, ";")) # split strings by `;` and remove `;`
-
-  macro_call <- lapply(theCode, stri_extract_all, regex = "%[a-zA-Z0-9]*") %>% # [\\(\\s] 
+  # extract all "%xxx"
+  macro_call <- lapply(theCode, stringi::stri_extract_all, regex = "%[a-zA-Z0-9]*") %>% # [\\(\\s] 
     unlist() %>% 
     na.omit()
-  macro_call <- lapply(macro_call, stri_replace_all, regex = "%", replacement =  "") %>%
-    unlist() %>% setdiff(c(dropArg, ""))
+  # replace "%" with "", and remove "macro"/"mend"/""
+  macro_call <- lapply(macro_call, stringi::stri_replace_all, regex = "%", replacement =  "") %>%
+    unlist() %>% setdiff(c("macro", "mend", dropArg, ""))
   
   return(macro_call)
 }
-## Extract lines starting with `%`, e.g. %xxxx 
-#idx <- NULL
-#idx <- grep("^%", theCode)
-#theCode <- gsub(pattern = "\\s*%\\s+", replacement = "", x = theCode[idx]) 
-#
-## Exclude %mend and %macro
-#idx <- grepl("^%mend|^%macro|^%end", theCode)
-#macro_call <- strsplit(theCode[!idx], " ")
-#macro_call <- unlist(lapply(macro_call, `[[`, 1))
-## Remove parentheses and arguments inside
-#if (dropArg) {macro_call <- gsub("\\s*\\([^\\)]+\\)|\\s*\\(*", "", macro_call)}  
-## Remove `%`
-#macro_call <- gsub(pattern = "%", replacement = "", macro_call)
-#return(macro_call)
 
 # txt=file.path(sasDir, 'Macros/ModelCode.SAS')
-extractMacro_define <- function(txt) {
+extractMacro_define <- function(txt, dropArg=NULL) {
   theCode <- parseSAS(txt) 
   theCode <- unlist(strsplit(theCode, ";")) # split strings by `;` and remove `;`
+
+  macro_define <- lapply(theCode, stri_extract_all, regex = "%macro [a-zA-Z0-9]*") %>% # [\\(\\s] 
+    unlist() %>% 
+    na.omit()
+  macro_define <- lapply(macro_define, stri_replace_all, regex = "%", replacement =  "") %>%
+    unlist() %>% setdiff(c("macro", "mend", dropArg, ""))
   
+    
   # Extract %macro lines
   idx <- NULL
   idx <- grep("\\s*%macro\\s+", theCode)

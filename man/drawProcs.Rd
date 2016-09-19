@@ -4,7 +4,7 @@
 \alias{drawProcs}
 \title{Draw the frequency of proc calls}
 \usage{
-drawProcs(procs)
+drawProcs(filepath)
 }
 \arguments{
 \item{procs}{data.frame output from the listProcs function, i.e. counts by procs.}
@@ -19,8 +19,7 @@ Draw a barplot based on the frequency.
 \dontrun{
 library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
-out <- listProcs(parseSASfolder(sasDir)$Procs)
-drawProcs(out)
+drawProcs(sasDir)
 }
 }
 \author{

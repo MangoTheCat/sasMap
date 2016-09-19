@@ -8,7 +8,7 @@
 #' @examples \dontrun{
 #' library(sasMap)
 #' sasDir <- system.file('examples/SAScode', package='sasMap')
-#' sasCode <- parseSASfolder(sasDir)
+#' sasCode <- parseSASfolder(sasDir, output = "list")
 #' plotSASmapJS(funData=sasCode)
 #' }
 #' @importFrom networkD3 simpleNetwork

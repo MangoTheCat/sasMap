@@ -2,7 +2,7 @@
 #'
 #' Also set vertex attribute for the toplevel scripts.
 #'
-#' @param sasDir basedir to analysis
+#' @param dirPath basedir to analysis
 #' @param sas.pattern the extention file name pattern
 #' @return network object
 #' @author Mango Solutions
@@ -14,10 +14,13 @@
 #' }
 #' @importFrom network set.vertex.attribute network.vertex.names
 #' @export
-renderNetwork <- function (sasDir, sas.pattern = "\\.[Ss][Aa][Ss]$") {
-  sasCode <- parseSASfolder(sasDir, output='list')
-  net <- createNetwork(sasCode)
-  toplevel.scripts <- casefold(sub(sas.pattern, "", basename(list.files(sasDir,
+renderNetwork <- function (dirPath, sas.pattern = "\\.[Ss][Aa][Ss]$") {
+  if (file.info(dirPath)$isdir) {sasCode <- parseSASfolder(dirPath, output='list')}
+  else {sasCode <- parseSASscript(dirPath, output = "list")}  
+  
+  #sasCode <- parseSASfolder(dirPath, output='list')
+  net <- createNetwork(sasCode$Macro_call)
+  toplevel.scripts <- casefold(sub(sas.pattern, "", basename(list.files(dirPath,
     pattern = sas.pattern))))
 
   set.vertex.attribute(net, "toplevel", network.vertex.names(net) %in%
@@ -40,11 +43,14 @@ renderNetwork <- function (sasDir, sas.pattern = "\\.[Ss][Aa][Ss]$") {
 #' @author Mango Solutions
 #' @importFrom network network
 createNetwork <- function(funlist, omitpattern = "^\\.|%", rootfunc = NULL, transpose = FALSE, returnmatrix = FALSE) {
-  if (any(duplicated(names(funlist)))) {
-    warning('There are duplicated names in the input funlist. This is probably caused by multiple definition of a single function. We will merge the same name entry together in the following processing.')
-    funlist <- tapply(funlist, names(funlist), function(x) unlist(unname(x)))
-  }
   fun.names <- names(funlist)
+  
+  if (any(duplicated(fun.names))) {
+    warning('There are duplicated names in the input funlist. This is probably caused by multiple definition of a single function. 
+            We will merge the same name entry together in the following processing.')
+    funlist <- tapply(funlist, fun.names, function(x) unlist(unname(x)))
+  }
+  
   pfun.user <- lapply(funlist, function(x) intersect(x, fun.names))
   netm <- matrix(0, length(fun.names), length(fun.names), dimnames=list(fun.names, fun.names))
   for(i in 1:length(fun.names)) {

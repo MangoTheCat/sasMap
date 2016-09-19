@@ -11,14 +11,15 @@
 #' listProcs(sasDir)
 #' }
 #' @export
-listProcs <- function(filepath = "C:\\Projects\\HSBC\\SAS Codes\\data transformation.sas"){
-  if (file.info(filepath)$isdir) {sasCode <- parseSASfolder(filepath)}
-  else {sasCode <- parseSASscript(filepath)}  
+listProcs <- function(filepath){
+  if (file.info(filepath)$isdir) {sasCode <- parseSASfolder(filepath, output = "list")}
+  else {sasCode <- parseSASscript(filepath, output = "list")}  
   
+  if (is.null(sasCode$Procs))  return(NULL)
+    
   procs <- data.frame(table(unlist(sasCode$Procs)))
   names(procs) <- c("Proc", "N")
   procs <- procs [order(procs$N, decreasing = TRUE), ]
-    
   return(procs)
 }
 
@@ -32,12 +33,13 @@ listProcs <- function(filepath = "C:\\Projects\\HSBC\\SAS Codes\\data transforma
 #' @examples \dontrun{
 #' library(sasMap)
 #' sasDir <- system.file('examples/SAScode', package='sasMap')
-#' listProcs(sasDir) %>% drawProcs()
+#' drawProcs(sasDir)
 #' }
 #' @export
 #' @import ggplot2
-drawProcs <- function(procs) {
-
+drawProcs <- function(filepath) {
+  
+  procs <- listProcs(filepath)
   procs <- na.omit(procs)
 
   g <- ggplot(procs, aes(x=reorder(Proc, N), y=N)) +

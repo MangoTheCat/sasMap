@@ -25,10 +25,10 @@ sasCode <- parseSASfolder(sasDir)
 write.csv(sasCode, 'sasCode.csv', row.names = FALSE)
 
 # List counts of proc calls
-listProcs(sasCode$Procs)
+listProcs(sasDir)
  
 # Draw frequency of proc calls
-drawProcs(listProcs(sasCode$Procs))
+drawProcs(sasDir)
 ```
 
 <img src="inst/examples/figs/Proc calls.png" alt="Proc Calls Overview" />
@@ -37,11 +37,8 @@ drawProcs(listProcs(sasCode$Procs))
 # Draw network of SAS scripts. A pdf file can be created by specifying the file name.
 net <- renderNetwork(sasDir)
 plotSASmap(net, pdffile='static_sas_map.pdf', width=10, height=10)
-
-# Draw basic force directed network graphics using D3 JavaScript library
-plotSASmapJS(funData=sasCode)
 ```
-<img src="inst/examples/figs/SAS script network.png" alt="Script Calls Network" />
+<img src="inst/examples/figs/static_sas_map.png" alt="Script Calls Network" />
 
 ## Licence
 GPL 2 © [Mango Solutions](https://github.com/mangothecat)
