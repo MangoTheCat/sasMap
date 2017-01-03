@@ -10,8 +10,7 @@
         run;
 
     PROC SQL;
-        SELECT *
-            FROM VITALS;
+        SELECT * FROM VITALS;
     QUIT;
 		
 %mend util2;
