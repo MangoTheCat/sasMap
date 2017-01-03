@@ -12,7 +12,7 @@ Installation from github requires the devtools package to be installed.
 
 ```R
 # Install sasMap from github
-devtools::install_github("MangoTheCat/sasMap")
+devtools::install_github("MangoTheCat/sasMap", ref = "ayang")
 ```
 ## Usage
 ```R
@@ -31,7 +31,7 @@ listProcs(sasDir)
 drawProcs(sasDir)
 ```
 
-<img src="inst/examples/figs/Proc calls.png" alt="Proc Calls Overview" />
+<img src="inst/examples/figs/Proc calls2.png" alt="Proc Calls Overview" />
 
 ```R
 # Draw network of SAS scripts. A pdf file can be created by specifying the file name.
@@ -39,6 +39,12 @@ net <- renderNetwork(sasDir)
 plotSASmap(net, pdffile='static_sas_map.pdf', width=10, height=10)
 ```
 <img src="inst/examples/figs/static_sas_map.png" alt="Script Calls Network" />
+
+```R
+# Draw basic force directed network graphics using D3 JavaScript library
+plotSASmapJS(sasDir)
+```
+<img src="inst/examples/figs/SAS script network2.png" alt="Script Calls JS Network" />
 
 ## Licence
 GPL 2 © [Mango Solutions](https://github.com/mangothecat)
