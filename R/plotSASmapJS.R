@@ -2,22 +2,24 @@
 #'
 #' It creates basic force directed network graphics with depends on the networkD3 package.
 #'
-#' @param funData Parsed SAS code from multiple scripts
+#' @param dirPath Path to the folder that holds all SAS scripts (> 1)
 #' @return \code{NULL}.
 #' @author Mango Solutions
 #' @examples \dontrun{
 #' library(sasMap)
 #' sasDir <- system.file('examples/SAScode', package='sasMap')
-#' sasCode <- parseSASfolder(sasDir, output = "list")
-#' plotSASmapJS(funData=sasCode)
+#' plotSASmapJS(sasDir)
 #' }
 #' @importFrom networkD3 simpleNetwork
 #' @export
-plotSASmapJS <- function(funData){
+plotSASmapJS <- function(dirPath){
   
-  if(missing(funData)) stop("Argument 'funData' is missing. It takes in the parsed sas code.")
-  if(length(funData[["Script"]]) < 2) stop("This function requires parsed output of multiple scripts.")
-
+  #if(missing(funData)) stop("Argument 'funData' is missing. It takes in the parsed sas code.")
+  #if(length(funData[["Script"]]) < 2) stop("This function requires parsed output of multiple scripts.")
+  if(missing(dirPath)) stop("Please provide a path to the sas folder.")
+  if (file.info(dirPath)$isdir) {funData <- parseSASfolder(dirPath, output='list')}
+  if(length(funData[["Script"]]) < 2) stop("Please provide more than one sas script.")
+  
   lFun <- funData[["Macro_call"]]
   
   res <- list()

@@ -1,6 +1,8 @@
 #' Parse the SAS script
 #'
 #' @param txt Path to a SAS script
+#' @param funs functions to calculate stats
+#' @param output data.frame or list
 #' @return \code{list}.
 #' @author Mango Solutions
 #' @examples \dontrun{

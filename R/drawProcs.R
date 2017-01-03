@@ -2,7 +2,7 @@
 #'
 #' This function reports counts of proc calls by group.
 #'
-#' @param filepath Path to single sas file or folder
+#' @param dirPath Path to single sas file or folder
 #' @return \code{data.frame}
 #' @author Mango Solutions
 #' @examples \dontrun{
@@ -11,9 +11,9 @@
 #' listProcs(sasDir)
 #' }
 #' @export
-listProcs <- function(filepath){
-  if (file.info(filepath)$isdir) {sasCode <- parseSASfolder(filepath, output = "list")}
-  else {sasCode <- parseSASscript(filepath, output = "list")}  
+listProcs <- function(dirPath){
+  if (file.info(dirPath)$isdir) {sasCode <- parseSASfolder(dirPath, output = "list")}
+  else {sasCode <- parseSASscript(dirPath, output = "list")}  
   
   if (is.null(sasCode$Procs))  return(NULL)
     
@@ -27,8 +27,8 @@ listProcs <- function(filepath){
 #'
 #' Draw a barplot based on the frequency.
 #'
-#' @param procs data.frame output from the listProcs function, i.e. counts by procs.
-#' @return \code{NULL}.
+#' @param dirPath Path to single sas file or folder
+#' @return \code{NULL}
 #' @author Mango Solutions
 #' @examples \dontrun{
 #' library(sasMap)
@@ -37,9 +37,9 @@ listProcs <- function(filepath){
 #' }
 #' @export
 #' @import ggplot2
-drawProcs <- function(filepath) {
+drawProcs <- function(dirPath) {
   
-  procs <- listProcs(filepath)
+  procs <- listProcs(dirPath)
   procs <- na.omit(procs)
 
   g <- ggplot(procs, aes(x=reorder(Proc, N), y=N)) +
