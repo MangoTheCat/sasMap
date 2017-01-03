@@ -26,7 +26,7 @@ parseSASscript <- function(txt,
   # Is it possible tht the lines starting with data are not data steps?
   whichCall <- sapply(paste0("%", allFiles, "[;(]+"), function(txt, code) length(grep(txt, code)), code= theCode)
   callFuns <- if (sum(whichCall)) paste0(allFiles[whichCall > 0], collapse=",") else ""
-  procLines <- grep("^proc", theCode)
+  procLines <- grep("^proc ", theCode)
 
   #allProcs <- c()
   procTab <- NULL
