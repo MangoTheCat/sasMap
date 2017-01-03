@@ -3,8 +3,8 @@ Title: Function map for SAS
 Version: 0.0.2.9000
 Author: Richard Pugh, Jinjing Xie, Ava Yang, Gregoire Gauriot
 Maintainer: Mango Business Solutions <ayang@mango-solutions.com>
-Description: Examine the structure of SAS scripts by visualizing macro
-    dependencies and listing data steps/ procs in analysis.
+Description: As a static code analysis tool, sasMap examines the structure of SAS scripts by visualizing macro
+    dependencies and listing data steps/procs in analysis.
 Depends:
     R (>= 3.2.4)
 Imports:
@@ -15,6 +15,7 @@ Imports:
     ggplot2,
     network,
 	networkD3
+Suggests: testthat
 License: GPL-2
 LazyData: true
 RoxygenNote: 5.0.1
