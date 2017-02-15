@@ -31,7 +31,7 @@ listProcs(sasDir)
 drawProcs(sasDir)
 ```
 
-<img src="inst/examples/figs/Proc calls2.png" alt="Proc Calls Overview" />
+<img src="inst/examples/figs/Proc calls.png" alt="Proc Calls Overview" />
 
 ```R
 # Draw network of SAS scripts. A pdf file can be created by specifying the file name.
@@ -41,10 +41,10 @@ plotSASmap(net, pdffile='static_sas_map.pdf', width=10, height=10)
 <img src="inst/examples/figs/static_sas_map.png" alt="Script Calls Network" />
 
 ```R
-# Draw basic force directed network graphics using D3 JavaScript library
+# Draw interactive force directed network graphics
 plotSASmapJS(sasDir)
 ```
-<img src="inst/examples/figs/SAS script network2.png" alt="Script Calls JS Network" />
+<img src="inst/examples/figs/network.png" alt="Script Calls JS Network" />
 
 ## Licence
 GPL 2 © [Mango Solutions](https://github.com/mangothecat)
