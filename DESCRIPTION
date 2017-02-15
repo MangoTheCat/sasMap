@@ -1,21 +1,35 @@
 Package: sasMap
 Title: Function map for SAS
 Version: 0.0.2.9000
-Author: Richard Pugh, Jinjing Xie, Ava Yang, Gregoire Gauriot
+Authors@R: c(
+    person("Ava", "Yang", , "ayang@mango-solutions.com", role = c("aut", "cre")),
+    person("Richard", "Pugh", , "rpugh@mango-solutions.com", role = "aut"),
+    person("Gregoire", "Gauriot", , "ggauriot@mango-solutions.com", role = "aut"),
+    person("Jinjing", "Xie", , "jxie@mango-solutions.com", role = "aut"),
+    person("Mango Solutions", role = "cph")
+    )
 Maintainer: Mango Business Solutions <ayang@mango-solutions.com>
-Description: As a static code analysis tool, sasMap examines the structure of SAS scripts by visualizing macro
-    dependencies and listing data steps/procs in analysis.
+Description: As a static code analysis tool, sasMap examines the structure of 
+    SAS scripts by visualizing macro dependencies and listing data steps/procs 
+    in analysis.
 Depends:
     R (>= 3.2.4)
 Imports:
     readr,
     stringi,
-    magrittr,
+    dplyr,
+    tidyr,
     purrr,
     ggplot2,
     network,
-	networkD3
-Suggests: testthat
-License: GPL-2
-LazyData: true
+	  visNetwork
+Suggests: 
+    testthat,
+    shiny,
+    shinyFiles,
+    shinythemes,
+    markdown
+URL: https://github.com/MangoTheCat/sasMap
+BugReports: https://github.com/mangothecat/sasMap/issues
+License:  MIT + file LICENSE
 RoxygenNote: 5.0.1

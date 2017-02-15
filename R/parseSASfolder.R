@@ -9,9 +9,6 @@
 #' library(sasMap)
 #' sasDir <- system.file('examples/SAScode', package='sasMap')
 #' sasCode <- parseSASfolder(sasDir)
-#' ##parseSASfolder("C:\\Projects\\sas2r\\Source code dump\\CORD\\Formats")
-#' parseSASfolder("C:\\Projects\\sas2r\\Source code dump\\CORD\\Macros")
-#' ##parseSASfolder("C:\\Projects\\sas2r\\Source code dump\\CORD\\StoredProcesses")
 #' write.csv(sasCode, 'sasCode.csv', row.names = FALSE)
 #' }
 #' @export

@@ -10,6 +10,8 @@ parseSASfolder(dirPath, sasPattern = "\\\\.[Ss][Aa][Ss]$",
 \arguments{
 \item{dirPath}{Path to the folder that holds all SAS scripts}
 
+\item{sasPattern}{Pattern of sas files}
+
 \item{output}{Output should be data.frame or list? Default is data.frame.}
 }
 \value{
@@ -23,9 +25,6 @@ Extract summary information of data steps and proc calls by parsing a SAS folder
 library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
 sasCode <- parseSASfolder(sasDir)
-##parseSASfolder("C:\\\\Projects\\\\sas2r\\\\Source code dump\\\\CORD\\\\Formats")
-parseSASfolder("C:\\\\Projects\\\\sas2r\\\\Source code dump\\\\CORD\\\\Macros")
-##parseSASfolder("C:\\\\Projects\\\\sas2r\\\\Source code dump\\\\CORD\\\\StoredProcesses")
 write.csv(sasCode, 'sasCode.csv', row.names = FALSE)
 }
 }

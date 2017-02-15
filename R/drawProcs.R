@@ -46,8 +46,10 @@ drawProcs <- function(dirPath) {
     geom_bar(stat='identity', fill="#F21E13") +
 	  coord_flip() +
 	  theme_minimal() +
-	  geom_text(aes(label=N), hjust=-0.2, size=3) +
-	  ggtitle("Most Common Procedure Calls") + ylab("Number of calls") + xlab(NULL)
+	  geom_text(aes(label=N), hjust=-0.2, size=4) +
+	  ggtitle("Most Common Procedure Calls") + ylab("Number of calls") + xlab(NULL) + 
+    theme(axis.text = element_text(size = 14),
+          axis.title=element_text(size=14))
 
   g
 

@@ -4,10 +4,10 @@
 \alias{plotSASmapJS}
 \title{Plot interactive network of SAS scripts}
 \usage{
-plotSASmapJS(funData)
+plotSASmapJS(dirPath)
 }
 \arguments{
-\item{funData}{Parsed SAS code from multiple scripts}
+\item{dirPath}{Path to the folder that holds all SAS scripts (> 1)}
 }
 \value{
 \code{NULL}.
@@ -19,8 +19,7 @@ It creates basic force directed network graphics with depends on the networkD3 p
 \dontrun{
 library(sasMap)
 sasDir <- system.file('examples/SAScode', package='sasMap')
-sasCode <- parseSASfolder(sasDir, output = "list")
-plotSASmapJS(funData=sasCode)
+plotSASmapJS(sasDir)
 }
 }
 \author{

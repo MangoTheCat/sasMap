@@ -14,9 +14,6 @@ test_that("returns parsed elements of a sas script", {
   expect_equal(res_df$Macro_define, structure(1L, .Label = "", class = "factor"))
   
   expect_equal(class(res_list), "list")
-  expect_equal(res_list, structure(list(Script = "MainAnalysis", 
-                                        nLines = 9L, Procs = NULL, Data_step = 2L, Macro_call = c("init", 
-                                                                                                  "modelcode"), Macro_define = character(0)), .Names = c("Script", 
-                                                                                                                                                         "nLines", "Procs", "Data_step", "Macro_call", "Macro_define")))
-  
+  expect_equal(names(res_list), c("Script", "nLines", "Procs", 
+    "Data_step", "Macro_call", "Macro_define"))
 })

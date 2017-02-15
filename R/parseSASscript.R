@@ -107,7 +107,7 @@ extractMacro_call <- function(txt, dropArg = NULL){
   macro_call <- lapply(theCode, stringi::stri_extract_all, regex = "%[a-zA-Z0-9]*") %>% # [\\(\\s] 
     unlist() %>% 
     na.omit()
-  # replace "%" with "", and remove "macro"/"mend"/""
+  # replace "%" with "", and exclude "macro", "mend" and others
   macro_call <- lapply(macro_call, stringi::stri_replace_all, regex = "%", replacement =  "") %>%
     unlist() %>% setdiff(c("macro", "mend", dropArg, ""))
   
@@ -125,7 +125,6 @@ extractMacro_define <- function(txt, dropArg=NULL) {
   macro_define <- lapply(macro_define, stri_replace_all, regex = "%", replacement =  "") %>%
     unlist() %>% setdiff(c("macro", "mend", dropArg, ""))
   
-    
   # Extract %macro lines
   idx <- NULL
   idx <- grep("\\s*%macro\\s+", theCode)

@@ -4,10 +4,10 @@
 \alias{listProcs}
 \title{List proc calls}
 \usage{
-listProcs(filepath)
+listProcs(dirPath)
 }
 \arguments{
-\item{filepath}{Path to single sas file or folder}
+\item{dirPath}{Path to single sas file or folder}
 }
 \value{
 \code{data.frame}

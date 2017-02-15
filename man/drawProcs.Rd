@@ -4,13 +4,13 @@
 \alias{drawProcs}
 \title{Draw the frequency of proc calls}
 \usage{
-drawProcs(filepath)
+drawProcs(dirPath)
 }
 \arguments{
-\item{procs}{data.frame output from the listProcs function, i.e. counts by procs.}
+\item{dirPath}{Path to single sas file or folder}
 }
 \value{
-\code{NULL}.
+\code{NULL}
 }
 \description{
 Draw a barplot based on the frequency.

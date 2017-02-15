@@ -10,6 +10,10 @@ parseSASscript(txt, funs = list(Script = getScript_name, nLines = countLine,
 }
 \arguments{
 \item{txt}{Path to a SAS script}
+
+\item{funs}{functions to calculate stats}
+
+\item{output}{data.frame or list}
 }
 \value{
 \code{list}.
