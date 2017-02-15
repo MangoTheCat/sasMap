@@ -44,7 +44,13 @@ plotSASmap(net, pdffile='static_sas_map.pdf', width=10, height=10)
 # Draw interactive force directed network graphics
 plotSASmapJS(sasDir)
 ```
-<img src="inst/examples/figs/network.png" alt="Script Calls JS Network" />
+
+```R
+# Put everything together in a shiny app
+library(shiny)
+runApp('inst/shiny')
+```
+<img src="inst/examples/figs/shiny.png" alt="Shiny screenshot" />
 
 ## Licence
 GPL 2 © [Mango Solutions](https://github.com/mangothecat)
