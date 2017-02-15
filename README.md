@@ -12,7 +12,7 @@ Installation from github requires the devtools package to be installed.
 
 ```R
 # Install sasMap from github
-devtools::install_github("MangoTheCat/sasMap", ref = "ayang")
+devtools::install_github("MangoTheCat/sasMap")
 ```
 ## Usage
 ```R
