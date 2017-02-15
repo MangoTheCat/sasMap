@@ -1,10 +1,26 @@
+# Install packages
+if (!require("shiny"))
+  install.packages("shiny", repos = "http://cran.ma.imperial.ac.uk/")
+if (!require("shinythemes"))
+  install.packages("shinythemes", repos = "http://cran.ma.imperial.ac.uk/")
+if (!require("shinyFiles"))
+  install.packages("shinyFiles", repos = "http://cran.ma.imperial.ac.uk/")
+if (!require("markdown"))
+  install.packages("markdown", repos = "http://cran.ma.imperial.ac.uk/")
+if (!require("visNetwork"))
+  install.packages("visNetwork", repos = "http://cran.ma.imperial.ac.uk/")
+if (!require("devtools"))
+  install.packages("devtools", repos = "http://cran.ma.imperial.ac.uk/")
+if (!require("sasMap"))
+  devtools::install_github("MangoTheCat/sasMap")
+
+
 # Load packages
 library(shiny) 
-library(shinyFiles)
 library(shinythemes)
-library(readr)
+library(shinyFiles)
 library(markdown)
-library(sasMap)
 library(visNetwork)
+library(sasMap)
 
 options(width = 80)
