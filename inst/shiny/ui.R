@@ -16,8 +16,8 @@ fluidPage(
           Hope it makes your journey more of a breeze."),
         helpText(a("Take a look at sasMap GitHub repo -> .->", href = "https://github.com/MangoTheCat/sasMap", target = "_blank")),
         hr(),
-        checkboxInput("localChek", "I want to specify a local directory", value = FALSE),
-        uiOutput("localDir"),
+        helpText(""),
+        checkboxInput("localChek", "I want to specify a local directory (Warning: It only works when running the shiny app from a local machine).", value = FALSE),
         conditionalPanel(
           "input.localChek == true",
           shinyDirButton("dir", "Chose directory", "Specify a local directory")
