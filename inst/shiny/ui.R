@@ -2,9 +2,9 @@ fluidPage(
   theme = shinytheme("united"),
   #shinythemes::themeSelector(),
   navbarPage(
-    "SAKE - SAS code Analysis Kit idE",
+    "sasMap - Function Map for SAS",
     tabPanel(
-      "SASmap",
+      "sasMap",
       sidebarPanel(
         helpText("This shiny application gathers functionality with the aim to ease your migration, 
                  conversion, transformation or parallel programming with SAS and R. The bulk of it is

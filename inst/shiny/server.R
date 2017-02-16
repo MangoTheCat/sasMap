@@ -3,7 +3,7 @@ function(input, output, session) {
   # dir
   shinyDirChoose(input, 
                  'dir', 
-                 roots = c(home = '~'), 
+                 roots = c(home = '~'),
                  filetypes = c('', 'txt'))
   dir <- reactive(input$dir)
   

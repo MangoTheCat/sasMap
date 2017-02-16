@@ -1,4 +1,8 @@
 # Install packages
+if (!require("devtools"))
+  install.packages("devtools", repos = "http://cran.ma.imperial.ac.uk/")
+if (!require("sasMap"))
+  devtools::install_github("MangoTheCat/sasMap")
 if (!require("shiny"))
   install.packages("shiny", repos = "http://cran.ma.imperial.ac.uk/")
 if (!require("shinythemes"))
@@ -9,10 +13,6 @@ if (!require("markdown"))
   install.packages("markdown", repos = "http://cran.ma.imperial.ac.uk/")
 if (!require("visNetwork"))
   install.packages("visNetwork", repos = "http://cran.ma.imperial.ac.uk/")
-if (!require("devtools"))
-  install.packages("devtools", repos = "http://cran.ma.imperial.ac.uk/")
-if (!require("sasMap"))
-  devtools::install_github("MangoTheCat/sasMap")
 
 
 # Load packages
