@@ -6,17 +6,24 @@ fluidPage(
     tabPanel(
       "sasMap",
       sidebarPanel(
-        helpText("This shiny application gathers functionality with the aim to ease your migration, 
-                 conversion, transformation or parallel programming with SAS and R. The bulk of it is
-                 the sasMap R package, which carries out static code analysis for SAS by 
-                 extracting summary information of procs, data steps and macro calls etc., and 
-                 visualizing script/macro dependencies. For more customized
-                 output, you may want to run the sasMap funcions in an R IDE, e.g. RStudio.
-                 Hope it makes your journey more of a breeze."),
+        helpText(
+          "This shiny application gathers functionality with the aim to ease your migration, 
+          conversion, transformation or parallel programming with SAS and R. The bulk of it is
+          the sasMap R package, which carries out static code analysis for SAS by 
+          extracting summary information of procs, data steps and macro calls etc., and 
+          visualizing script/macro dependencies. For more customized
+          output, you may want to run the sasMap funcions in an R IDE, e.g. RStudio.
+          Hope it makes your journey more of a breeze."),
+        helpText(a("Take a look at sasMap GitHub repo -> .->", href = "https://github.com/MangoTheCat/sasMap", target = "_blank")),
         hr(),
-        shinyDirButton("dir", "Chose directory", "Please specify a directory"), 
-        helpText("Your specified directory:"),
-        verbatimTextOutput("files")
+        checkboxInput("localChek", "I want to specify a local directory", value = FALSE),
+        uiOutput("localDir"),
+        conditionalPanel(
+          "input.localChek == true",
+          shinyDirButton("dir", "Chose directory", "Specify a local directory")
+        ),
+        helpText("sasMap is reading this directory:"),
+        verbatimTextOutput("printpath")
       ),
       mainPanel(
         tabsetPanel(
@@ -50,13 +57,15 @@ fluidPage(
       icon = icon("info")
     ),
     tabPanel(
-      "SAS script",
+      "Script parser",
       sidebarPanel(
         fileInput('uploadFile', 'Upload a SAS Script', multiple=TRUE,
                   accept=c('.sas', '.SAS', 'text/comma-separated-values, text/plain')) 
       ),
       mainPanel(
-        verbatimTextOutput("text1")
+        verbatimTextOutput("text1"),
+        tableOutput("table1"),
+        plotOutput("plot1", height = "400px", width = "400px")
       ),
       icon = icon("file-code-o")
     )
