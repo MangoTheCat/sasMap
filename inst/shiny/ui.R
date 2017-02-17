@@ -4,7 +4,7 @@ fluidPage(
   navbarPage(
     "sasMap - Function Map for SAS",
     tabPanel(
-      "sasMap",
+      "Folder Parser",
       sidebarPanel(
         helpText(
           "This shiny application gathers functionality with the aim to ease your migration, 
@@ -52,12 +52,7 @@ fluidPage(
       icon = icon("share-alt")
     ),
     tabPanel(
-      "Reference", 
-      includeMarkdown("md/guide.md"),
-      icon = icon("info")
-    ),
-    tabPanel(
-      "Script parser",
+      "Script Parser",
       sidebarPanel(
         fileInput('uploadFile', 'Upload a SAS Script', multiple=TRUE,
                   accept=c('.sas', '.SAS', 'text/comma-separated-values, text/plain')) 
@@ -68,6 +63,11 @@ fluidPage(
         plotOutput("plot1", height = "400px", width = "400px")
       ),
       icon = icon("file-code-o")
+    ),
+    tabPanel(
+      "Reference", 
+      includeMarkdown("md/guide.md"),
+      icon = icon("info")
     )
   ),
   hr(),
