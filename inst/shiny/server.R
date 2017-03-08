@@ -8,7 +8,7 @@ function(input, output, session) {
   
   # path
   path <- reactive({
-    if (input$localChek) {
+    if (input$localCheck) {
       home <- normalizePath("~")
       file.path(home, paste(unlist(input$dir$path[-1]),
         collapse = .Platform$file.sep))

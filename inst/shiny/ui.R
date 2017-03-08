@@ -17,10 +17,10 @@ fluidPage(
         helpText(a("Take a look at sasMap GitHub repo -> .->", href = "https://github.com/MangoTheCat/sasMap", target = "_blank")),
         hr(),
         helpText(""),
-        checkboxInput("localChek", "I want to specify a local directory (Warning: It only works when running the shiny app from a local machine).", value = FALSE),
+        checkboxInput("localCheck", "I want to specify a local directory (Warning: It only works when running the shiny app from a local machine).", value = FALSE),
         conditionalPanel(
-          "input.localChek == true",
-          shinyDirButton("dir", "Chose directory", "Specify a local directory")
+          "input.localCheck == true",
+          shinyDirButton("dir", "Chcose directory", "Specify a local directory")
         ),
         helpText("sasMap is reading this directory:"),
         verbatimTextOutput("printpath")
