@@ -1,4 +1,6 @@
 # sasMap
+# 
+[![Travis-CI Build Status](https://travis-ci.org/MangoTheCat/sasMap.svg?branch=master)](https://travis-ci.org/MangoTheCat/sasMap)
 
 > Function map for SAS scripts.
 
@@ -31,7 +33,7 @@ listProcs(sasDir)
 drawProcs(sasDir)
 ```
 
-<img src="inst/examples/figs/Proc calls.png" alt="Proc Calls Overview" />
+<img src="inst/examples/figs/Proc_calls.png" alt="Proc Calls Overview" />
 
 ```R
 # Draw network of SAS scripts. A pdf file can be created by specifying the file name.
