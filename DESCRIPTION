@@ -1,6 +1,6 @@
 Package: sasMap
 Title: Static SAS Code Analysis
-Version: 1.0
+Version: 1.0.0
 Authors@R: c(
     person("Nic", "Crane", , "ncrane@mango-solutions.com", role = c("aut", "cre")),
     person("Ava", "Yang", , "ayang@mango-solutions.com", role = "aut"),
