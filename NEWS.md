@@ -1,3 +1,7 @@
+### 1.0
+- Renamed and rewrote many core functions
+- Moved network/plotting/app features to dev branch
+
 ### 0.0.2.9000
 - Rewrote core function `parseSASscript()` so it calls small functions separately. Specifically, improved algorithm of comment removal, added micro define/calls so the stats information is more accurate.
 - Added unit tests

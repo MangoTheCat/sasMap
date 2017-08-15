@@ -1,6 +1,6 @@
 Package: sasMap
-Title: Function map for SAS
-Version: 0.0.2.9000
+Title: Static SAS Code Analysis
+Version: 1.0
 Authors@R: c(
     person("Nic", "Crane", , "ncrane@mango-solutions.com", role = c("aut", "cre")),
     person("Ava", "Yang", , "ayang@mango-solutions.com", role = "aut"),
@@ -10,28 +10,17 @@ Authors@R: c(
     person("Mango Solutions", role = "cph")
     )
 Maintainer: Mango Solutions <ncrane@mango-solutions.com>
-Description: As a static code analysis tool, sasMap examines the structure of 
-    SAS scripts by visualizing macro dependencies and listing data steps/procs 
-    in analysis.
+Description: A static code analysis tool for SAS scripts.
 Depends:
     R (>= 3.2.4)
 Imports:
     readr,
-    stringi,
-    dplyr,
-    tidyr,
-    purrr,
-    ggplot2,
-    network,
-	  visNetwork,
-    magrittr
+    stringr,
+    stringi
 Suggests:
     testthat,
-    shiny,
-    shinyFiles,
-    shinythemes,
     markdown
 URL: https://github.com/MangoTheCat/sasMap
 BugReports: https://github.com/mangothecat/sasMap/issues
 License: MIT + file LICENSE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
