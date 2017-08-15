@@ -10,6 +10,9 @@ extractMacroDefs <- function(sasCode){
   # Split sasCode into statements
   sasVec <- splitIntoStatements(sasCode)
   
+  # Remove whitespace
+  sasVec <- removeWhitespaceCharacters(sasVec)
+  
   # Extract all statements beginning with %macro
   macroDefs <- unlist(stringr::str_extract_all(sasVec, "^%macro .*"))
   
@@ -43,6 +46,9 @@ extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global",
   # Split sasCode into statements
   sasVec <- splitIntoStatements(sasCode)
   
+  # Remove whitespace
+  sasVec <- removeWhitespaceCharacters(sasVec)
+  
   # Extract all statements beginning with %
   macroCalls <- unlist(stringr::str_extract_all(sasVec, "^%[[:alnum:][:punct:]]*"))
   
@@ -61,9 +67,16 @@ extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global",
 
 #' Extract  procs from a vector of SAS code
 #'
-#' @params sasVec Vector of SAS code
+#' @params sasCode SAS code
 #' @importFrom stringr str_replace_all
-extractProcs <-  function(sasVec){
+extractProcs <-  function(sasCode){
+  
+  # Split sasCode into statements
+  sasVec <- splitIntoStatements(sasCode)
+  
+  # Remove whitespace
+  sasVec <- removeWhitespaceCharacters(sasVec)
+ 
   procs <- unlist(stringr::str_extract_all(sasVec, "^proc [a-zA-Z0-9]*"))
   stringr::str_replace_all(procs, "proc ", "")
   

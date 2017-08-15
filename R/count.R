@@ -46,7 +46,7 @@ countProcSteps <- function(sasCode){
 #' @importFrom stringr str_count
 countLines <- function(sasCode){
   
-  sum(stringr::str_count(sasVec, "\n"))
+  sum(stringr::str_count(sasCode, "\n"))
   
 }
 

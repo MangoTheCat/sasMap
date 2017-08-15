@@ -1,6 +1,15 @@
 #' Summarise a SAS script
-summariseSASScript <- function(){
+#' @param sasPath Path to SAS script
+#' @export
+summariseSASScript <- function(sasPath){
   
-  # name, lines, procs, data steps, macros called, macrosdefined
+  sasCode <- loadSAS(sasPath)
+  
+  list(name = basename(sasPath),
+             lines = countLines(sasCode),
+             procs = extractProcs(sasCode),
+             datasteps = countDataSteps(sasCode),
+       macroCalls = extractMacroCalls(sasCode),
+       macroDefs = extractMacroDefs(sasCode))
   
 }

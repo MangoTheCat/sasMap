@@ -1,5 +1,5 @@
-
-
+/* The second utility */
+* This is a comment ;
 %macro util2;
 
     %util1;
