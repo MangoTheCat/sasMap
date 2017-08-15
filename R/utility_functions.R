@@ -2,7 +2,7 @@
 #'
 #' @param sasPath SAS file location
 #' @importFrom readr read_file
-#'
+#' @importFrom stringi stri_trans_general
 #' @return Character string containing contents of the file
 #' @export
 loadSAS <- function(sasPath){

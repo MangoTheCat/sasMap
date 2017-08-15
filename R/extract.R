@@ -1,6 +1,6 @@
 #' Extract macro definitions from a string of SAS code
 #'
-#' @param sasVec Vector of SAS statements
+#' @param sasCode SAS code
 #' @importFrom stringr str_extract_all
 #' @importFrom stringr str_replace_all
 #' @importFrom stringr str_trim
@@ -36,7 +36,8 @@ extractMacroDefs <- function(sasCode){
 
 #' Extract macro calls from a string of SAS code
 #'
-#' @param sasVec Vector of SAS statements
+#' @param sasCode SAS code
+#' @param ignoreList Macro calls to ignore
 #' @importFrom stringr str_extract_all
 #' @importFrom stringr str_replace_all
 #' @return Vector of macro calls
@@ -67,7 +68,7 @@ extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global",
 
 #' Extract  procs from a vector of SAS code
 #'
-#' @params sasCode SAS code
+#' @param sasCode SAS code
 #' @importFrom stringr str_replace_all
 extractProcs <-  function(sasCode){
   
