@@ -2,7 +2,9 @@
 
 [![Travis-CI Build Status](https://travis-ci.org/MangoTheCat/sasMap.svg?branch=master)](https://travis-ci.org/MangoTheCat/sasMap)
 
-
+> Static code analysis for SAS scripts
+* Extract counts of proc and data steps
+* Summarise SAS files
 
 ## Usage
 ```R
