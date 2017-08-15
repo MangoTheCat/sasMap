@@ -25,9 +25,6 @@ loadSAS <- function(sasPath){
   sasCode
 }
 
-
-
-
 #' Split SAS code into statements
 #'
 #' @param sasCode Character string containing SAS code
