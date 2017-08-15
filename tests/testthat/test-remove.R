@@ -6,34 +6,25 @@ sasCode <- loadSAS(s)
 
 test_that("Removes multiline comments", {
   
-  withoutMulti <- "\r\n* this is a comment ;\r\n%macro util2;\r"
-  
   commentFree <- removeMultilineComments(sasCode)
-  commentFreeTrimmed <- substr(commentFree, 1, 39)
-  
-  expect_equal(commentFreeTrimmed, withoutMulti)
+ 
+  expect_false(stringr::str_detect(commentFree, "\\/\\*.*\\*\\/"))
   
 })
 
 test_that("Removes all comments", {
   
-  withoutAny <- "\r\n%macro util2;\r\n\r\n    %util1;"
-  
   commentFree <- removeAllComments(sasCode)
-  commentFreeTrimmed <- substr(commentFree, 1, 30)
   
-  expect_equal(commentFreeTrimmed, withoutAny)
+  expect_false(stringr::str_detect(commentFree, "this is a comment"))
   
 })
 
 test_that("Removes all whitespace", {
   
-  whiteRemoved <- "/* the second utility */  * th"
-  
   noWhite <- removeWhitespaceCharacters(sasCode)
-  noWhiteTrimmed <- substr(noWhite, 1, 30)
-  
-  expect_equal(noWhiteTrimmed, whiteRemoved)
+
+  expect_false(stringr::str_detect(noWhite, "\\\r|\\\n"))
   
 })
 
