@@ -2,13 +2,14 @@ Package: sasMap
 Title: Function map for SAS
 Version: 0.0.2.9000
 Authors@R: c(
-    person("Ava", "Yang", , "ayang@mango-solutions.com", role = c("aut", "cre")),
+    person("Nic", "Crane", , "ncrane@mango-solutions.com", role = c("aut", "cre")),
+    person("Ava", "Yang", , "ayang@mango-solutions.com", role = "aut"),
     person("Richard", "Pugh", , "rpugh@mango-solutions.com", role = "aut"),
     person("Gregoire", "Gauriot", , "ggauriot@mango-solutions.com", role = "aut"),
     person("Jinjing", "Xie", , "jxie@mango-solutions.com", role = "aut"),
     person("Mango Solutions", role = "cph")
     )
-Maintainer: Mango Business Solutions <ayang@mango-solutions.com>
+Maintainer: Mango Solutions <ncrane@mango-solutions.com>
 Description: As a static code analysis tool, sasMap examines the structure of 
     SAS scripts by visualizing macro dependencies and listing data steps/procs 
     in analysis.
@@ -22,8 +23,9 @@ Imports:
     purrr,
     ggplot2,
     network,
-	  visNetwork
-Suggests: 
+	  visNetwork,
+    magrittr
+Suggests:
     testthat,
     shiny,
     shinyFiles,
@@ -31,5 +33,5 @@ Suggests:
     markdown
 URL: https://github.com/MangoTheCat/sasMap
 BugReports: https://github.com/mangothecat/sasMap/issues
-License:  MIT + file LICENSE
+License: MIT + file LICENSE
 RoxygenNote: 5.0.1
