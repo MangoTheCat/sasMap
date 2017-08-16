@@ -12,3 +12,8 @@ extractProcs(sasCode)
 \description{
 Extract  procs from a vector of SAS code
 }
+\examples{
+sasFile <- system.file('examples/SAScode/Macros/Util1.SAS', package='sasMap')
+sasCode <- loadSAS(sasFile)
+extractProcs(sasCode)
+}

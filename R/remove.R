@@ -2,6 +2,11 @@
 #'
 #' @param sasCode Character string containing SAS code
 #' @importFrom stringr str_replace_all
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/Macros/Util2.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' removeMultilineComments(sasCode)
 removeMultilineComments <- function(sasCode){
   
   # (\\/\\*) = match "/*"
@@ -18,6 +23,11 @@ removeMultilineComments <- function(sasCode){
 #'
 #' @param sasVec Vector of SAS code
 #' @importFrom stringr str_detect
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/Macros/Util2.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' removeAllComments(sasCode)
 removeSingleLineComments <- function(sasVec){
   sasVec[!stringr::str_detect(sasVec, "^[:space:]*\\*")]
 }
@@ -55,6 +65,11 @@ removeAllComments <- function(sasCode){
 #' @param sasCode Character string containing SAS code
 #' @importFrom stringr str_replace_all
 #' @importFrom stringr str_trim
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/Macros/Util2.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' removeWhitespaceCharacters(sasCode)
 removeWhitespaceCharacters <- function(sasCode){
   sasCode <- stringr::str_replace_all(sasCode, "^ *?", "")
   sasCode <- stringr::str_replace_all(sasCode, "[\r\n\\\r\\\n\t]", " ")

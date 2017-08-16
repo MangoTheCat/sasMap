@@ -5,6 +5,11 @@
 #' @importFrom stringr str_replace_all
 #' @importFrom stringr str_trim
 #' @return Vector of macro definitions
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/Macros/Util1.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' extractMacroDefs(sasCode)
 extractMacroDefs <- function(sasCode){
   
   # Split sasCode into statements
@@ -40,7 +45,12 @@ extractMacroDefs <- function(sasCode){
 #' @param ignoreList Macro calls to ignore
 #' @importFrom stringr str_extract_all
 #' @importFrom stringr str_replace_all
+#' @export
 #' @return Vector of macro calls
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/Macros/Util1.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' extractMacroCalls(sasCode)
 extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global", "let", "put", "if",
                                                       "do", "end", "else")){
   
@@ -70,6 +80,11 @@ extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global",
 #'
 #' @param sasCode SAS code
 #' @importFrom stringr str_replace_all
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/Macros/Util1.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' extractProcs(sasCode)
 extractProcs <-  function(sasCode){
   
   # Split sasCode into statements

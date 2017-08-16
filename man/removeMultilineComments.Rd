@@ -12,3 +12,8 @@ removeMultilineComments(sasCode)
 \description{
 Remove multiline comments from SAS code
 }
+\examples{
+sasFile <- system.file('examples/SAScode/Macros/Util2.SAS', package='sasMap')
+sasCode <- loadSAS(sasFile)
+removeMultilineComments(sasCode)
+}

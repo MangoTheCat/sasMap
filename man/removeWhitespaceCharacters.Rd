@@ -12,3 +12,8 @@ removeWhitespaceCharacters(sasCode)
 \description{
 Remove whitespace characters from SAS code
 }
+\examples{
+sasFile <- system.file('examples/SAScode/Macros/Util2.SAS', package='sasMap')
+sasCode <- loadSAS(sasFile)
+removeWhitespaceCharacters(sasCode)
+}

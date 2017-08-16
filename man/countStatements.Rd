@@ -12,3 +12,8 @@ countStatements(sasCode)
 \description{
 Count statements in a SAS file
 }
+\examples{
+sasFile <- system.file('examples/SAScode/MainAnalysis.SAS', package='sasMap')
+sasCode <- loadSAS(sasFile)
+countStatements(sasCode)
+}

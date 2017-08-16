@@ -15,3 +15,7 @@ Character string containing contents of the file
 \description{
 Load SAS Code in
 }
+\examples{
+sasPath <- system.file('examples/SAScode/Macros/fun2.SAS', package='sasMap')
+loadSAS(sasPath)
+}

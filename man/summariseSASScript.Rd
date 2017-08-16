@@ -12,3 +12,7 @@ summariseSASScript(sasPath)
 \description{
 Summarise a SAS script
 }
+\examples{
+sasPath <- system.file('examples/SAScode/Macros/fun2.SAS', package='sasMap')
+summariseSASScript(sasPath)
+}

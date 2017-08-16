@@ -12,3 +12,8 @@ removeSingleLineComments(sasVec)
 \description{
 Finds and removes all lines starting with "*"
 }
+\examples{
+sasFile <- system.file('examples/SAScode/Macros/Util2.SAS', package='sasMap')
+sasCode <- loadSAS(sasFile)
+removeAllComments(sasCode)
+}

@@ -18,3 +18,8 @@ Vector of macro calls
 \description{
 Extract macro calls from a string of SAS code
 }
+\examples{
+sasFile <- system.file('examples/SAScode/Macros/Util1.SAS', package='sasMap')
+sasCode <- loadSAS(sasFile)
+extractMacroCalls(sasCode)
+}

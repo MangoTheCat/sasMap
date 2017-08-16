@@ -3,6 +3,11 @@
 #' @param sasCode Character string containing SAS code
 #' @importFrom stringr str_trim
 #' @importFrom stringr str_count
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/MainAnalysis.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' countDataSteps(sasCode)
 countDataSteps <- function(sasCode){
   
   sasCode <- removeAllComments(sasCode)
@@ -23,6 +28,11 @@ countDataSteps <- function(sasCode){
 #' @param sasCode Character string containing SAS code
 #' @importFrom stringr str_trim
 #' @importFrom stringr str_count
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/MainAnalysis.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' countProcSteps(sasCode)
 countProcSteps <- function(sasCode){
   
   sasCode <- removeAllComments(sasCode)
@@ -44,6 +54,11 @@ countProcSteps <- function(sasCode){
 #'
 #' @param sasCode Character string containing SAS code
 #' @importFrom stringr str_count
+#' @export
+#' @examples 
+#' sasFile <- system.file('examples/SAScode/MainAnalysis.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' countLines(sasCode)
 countLines <- function(sasCode){
   
   sum(stringr::str_count(sasCode, "\n"))
@@ -53,6 +68,11 @@ countLines <- function(sasCode){
 #' Count statements in a SAS file
 #'
 #' @param sasCode Character string containing SAS code
+#' @export
+#' @examples
+#' sasFile <- system.file('examples/SAScode/MainAnalysis.SAS', package='sasMap')
+#' sasCode <- loadSAS(sasFile)
+#' countStatements(sasCode)
 countStatements <- function(sasCode){
   
   sasCode <- splitIntoStatements(sasCode)

@@ -12,3 +12,8 @@ splitIntoStatements(sasCode)
 \description{
 Split SAS code into statements
 }
+\examples{
+sasPath <- system.file('examples/SAScode/Macros/fun2.SAS', package='sasMap')
+sasCode <- loadSAS(sasPath)
+splitIntoStatements(sasCode)
+}

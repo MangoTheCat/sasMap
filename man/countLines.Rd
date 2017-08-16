@@ -12,3 +12,8 @@ countLines(sasCode)
 \description{
 Count lines in a SAS file
 }
+\examples{
+sasFile <- system.file('examples/SAScode/MainAnalysis.SAS', package='sasMap')
+sasCode <- loadSAS(sasFile)
+countLines(sasCode)
+}
