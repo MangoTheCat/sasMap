@@ -9,7 +9,7 @@ Authors@R: c(
     person("Jinjing", "Xie", , "jxie@mango-solutions.com", role = "aut"),
     person("Mango Solutions", role = "cph")
     )
-Maintainer: Mango Solutions <ncrane@mango-solutions.com>
+Maintainer: Nic Crane <ncrane@mango-solutions.com>
 Description: A static code analysis tool for SAS scripts.
 Depends:
     R (>= 3.2.4)
