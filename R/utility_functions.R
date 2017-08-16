@@ -2,7 +2,6 @@
 #'
 #' @param sasPath SAS file location
 #' @importFrom readr read_file
-#' @importFrom stringi stri_trans_general
 #' @return Character string containing contents of the file
 #' @export
 #' @examples 
@@ -14,7 +13,7 @@ loadSAS <- function(sasPath){
   rawFile <- readr::read_file(sasPath)
   
   # Ensure correct encoding
-  rawFile <- stringi::stri_trans_general(rawFile, "latin-ascii")
+  rawFile <- iconv(rawFile, to = "ASCII//TRANSLIT")
   
   # Divide up
   sasCode <- splitIntoStatements(rawFile)
