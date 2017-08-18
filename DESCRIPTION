@@ -10,7 +10,9 @@ Authors@R: c(
     person("Mango Solutions", role = "cph")
     )
 Maintainer: Nic Crane <ncrane@mango-solutions.com>
+
 Description: A static code analysis tool for 'SAS' scripts. It is designed to load, count, extract, remove, and summarise components of 'SAS' code.
+
 Depends:
     R (>= 3.2.4)
 Imports:
