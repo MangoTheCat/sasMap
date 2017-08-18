@@ -17,8 +17,7 @@ Depends:
     R (>= 3.2.4)
 Imports:
     readr,
-    stringr,
-    stringi
+    stringr
 Suggests:
     testthat,
     markdown
