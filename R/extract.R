@@ -52,7 +52,7 @@ extractMacroDefs <- function(sasCode){
 #' sasCode <- loadSAS(sasFile)
 #' extractMacroCalls(sasCode)
 extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global", "let", "put", "if",
-                                                      "do", "end", "else")){
+                                                      "do", "end", "else", "sysrput", "sysfunc", "symput")){
   
   # Split sasCode into statements
   sasVec <- splitIntoStatements(sasCode)
