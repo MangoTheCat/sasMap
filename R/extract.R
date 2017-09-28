@@ -57,6 +57,9 @@ extractMacroDefs <- function(sasCode){
 extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global", "let", "put", "if",
                                                       "do", "end", "else", "sysrput", "sysfunc", "symput")){
   
+  # Remove comments from code
+  sasCode <- removeAllComments(sasCode)
+  
   # Split sasCode into statements
   sasVec <- splitIntoStatements(sasCode)
   
@@ -89,6 +92,9 @@ extractMacroCalls <- function(sasCode, ignoreList = c("macro", "mend", "global",
 #' sasCode <- loadSAS(sasFile)
 #' extractProcs(sasCode)
 extractProcs <-  function(sasCode){
+  
+  # Remove comments from code
+  sasCode <- removeAllComments(sasCode)
   
   # Split sasCode into statements
   sasVec <- splitIntoStatements(sasCode)
