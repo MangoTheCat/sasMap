@@ -12,6 +12,9 @@
 #' extractMacroDefs(sasCode)
 extractMacroDefs <- function(sasCode){
   
+  # Remove comments from code
+  sasCode <- removeAllComments(sasCode)
+  
   # Split sasCode into statements
   sasVec <- splitIntoStatements(sasCode)
   
