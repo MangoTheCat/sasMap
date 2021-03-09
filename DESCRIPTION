@@ -22,4 +22,4 @@ Suggests:
 URL: https://github.com/MangoTheCat/sasMap
 BugReports: https://github.com/mangothecat/sasMap/issues
 License: MIT + file LICENSE
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1

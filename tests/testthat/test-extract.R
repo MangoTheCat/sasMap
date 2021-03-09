@@ -14,7 +14,7 @@ test_that("Extracts macro definitions", {
 
 test_that("Extracts macro calls", {
   
-  expect_equal(extractMacroCalls(sasCode1), "modelcode")
+  expect_equal(extractMacroCalls(sasCode1), c("init","modelcode"))
   expect_equal(extractMacroCalls(sasCode2), "fun1")
   
 })

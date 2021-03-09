@@ -73,6 +73,6 @@ removeAllComments <- function(sasCode){
 removeWhitespaceCharacters <- function(sasCode){
   sasCode <- stringr::str_replace_all(sasCode, "^ *?", "")
   sasCode <- stringr::str_replace_all(sasCode, "[\r\n\\\r\\\n\t]", " ")
-  stringr::str_trim(sasCode)
+  stringr::str_squish(sasCode)
   
 }
