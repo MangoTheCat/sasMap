@@ -2,14 +2,14 @@ Package: sasMap
 Title: Static 'SAS' Code Analysis
 Version: 1.0.1
 Authors@R: c(
-    person("Nic", "Crane", , "ncrane@mango-solutions.com", role = c("aut", "cre")),
+    person("Jack", "Talboys", , "jack.talboys@mango-solutions.com", role = c("aut", "cre")),
+    person("Nic", "Crane", , "ncrane@mango-solutions.com", role = c("aut")),
     person("Ava", "Yang", , "ayang@mango-solutions.com", role = "aut"),
     person("Richard", "Pugh", , "rpugh@mango-solutions.com", role = "aut"),
     person("Gregoire", "Gauriot", , "ggauriot@mango-solutions.com", role = "aut"),
-    person("Jinjing", "Xie", , "jxie@mango-solutions.com", role = "aut"),
-    person("Mango Solutions", role = "cph")
-    )
-Maintainer: Nic Crane <ncrane@mango-solutions.com>
+    person("Jinjing", "Xie", , "jxie@mango-solutions.com", role = "aut"), 
+    person("Mango Solutions", role = "cph"))
+Maintainer: Jack Talboys <jack.talboys@mango-solutions.com>
 Description: A static code analysis tool for 'SAS' scripts. It is designed to load, count, extract, remove, and summarise components of 'SAS' code.
 Depends:
     R (>= 3.2.4)
