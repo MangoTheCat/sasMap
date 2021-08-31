@@ -4,11 +4,8 @@
 \alias{extractMacroCalls}
 \title{Extract macro calls from a string of SAS code}
 \usage{
-extractMacroCalls(
-  sasCode,
-  ignoreList = c("macro", "mend", "global", "let", "put", "if", "do", "end", "else",
-    "sysrput", "sysfunc", "symput")
-)
+extractMacroCalls(sasCode, ignoreList = c("macro", "mend", "global",
+  "let", "put", "if", "do", "end", "else", "sysrput", "sysfunc", "symput"))
 }
 \arguments{
 \item{sasCode}{SAS code}

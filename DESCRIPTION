@@ -2,7 +2,8 @@ Package: sasMap
 Title: Static 'SAS' Code Analysis
 Version: 1.0.1
 Authors@R: c(
-    person("Nic", "Crane", , "ncrane@mango-solutions.com", role = c("aut", "cre")),
+    person("Jack", "Talboys", , "jack.talboys@mango-solutions.com", role = c("aut", "cre"))
+    person("Nic", "Crane", , "ncrane@mango-solutions.com", role = c"aut"),
     person("Ava", "Yang", , "ayang@mango-solutions.com", role = "aut"),
     person("Richard", "Pugh", , "rpugh@mango-solutions.com", role = "aut"),
     person("Gregoire", "Gauriot", , "ggauriot@mango-solutions.com", role = "aut"),
